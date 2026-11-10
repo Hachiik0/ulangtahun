@@ -36,7 +36,7 @@ body {
   justify-content: center;
   gap: 1.5rem;
   z-index: 0;
-  opacity: 0.35;
+  opacity: 0.70;
   pointer-events: none;
   overflow: hidden;
 }
