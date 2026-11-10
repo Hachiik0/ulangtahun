@@ -8,12 +8,12 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Canvas Confetti CDN -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  <!-- Google Fonts (Ditambahkan font cursive untuk heading card) -->
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@700&family=Fredoka:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <!-- Custom CSS (Disesuaikan ke style.css atau hh.css) -->
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@700&family=Fredoka:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="hh.css">
 </head>
-<body class="bg-[#cfdbe6] text-slate-800 flex flex-col justify-center items-center">
+<body class="bg-[#cfdbe6] text-slate-800 flex flex-col justify-center items-center min-h-screen">
 
   <!-- BACKGROUND FLOATING GALLERY (Galeri Foto Bergerak) -->
   <div class="gallery-bg-container">
@@ -28,7 +28,7 @@
       <div class="photo-card"><img src="foto2.jpeg" alt="Memory 2"></div>
     </div>
 
-    <!-- Column 2 (Scroll Up - Diperbaiki dari scroll-down) -->
+    <!-- Column 2 (Scroll Up) -->
     <div class="gallery-col scroll-up">
       <div class="photo-card"><img src="foto5.jpeg" alt="Memory 5"></div>
       <div class="photo-card"><img src="foto1.jpeg" alt="Memory 6"></div>
@@ -172,82 +172,74 @@
     </div>
   </div>
 
-  <!-- MODALS / POP-UP CARDS (Ukuran Besar & Stylized Stitched Border) -->
+  <!-- MODALS / POP-UP CARDS -->
 
-<!-- Modal 1: Birthday Letter -->
-<div id="modal-letter" class="modal fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-  <div class="bg-[#fce4d6] rounded-3xl p-5 md:p-7 w-[92vw] max-w-md h-[78vh] shadow-2xl border-2 border-white/60 relative text-slate-700 flex flex-col justify-between">
-    
-    <!-- Inner Stitched Border Container -->
-    <div class="card-stitched w-full h-full p-6 flex flex-col relative overflow-hidden bg-[#fce4d6]">
-      <button onclick="closeModal('modal-letter')" class="absolute top-2 right-2 text-slate-400 hover:text-slate-600 font-bold text-lg leading-none">✕</button>
+  <!-- Modal 1: Birthday Letter -->
+  <div id="modal-letter" class="modal fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div class="bg-[#fce4d6] rounded-3xl p-4 md:p-6 w-[92vw] max-w-md max-h-[82vh] shadow-2xl border-2 border-white/60 relative text-slate-700 flex flex-col justify-between">
       
-      <!-- Heading & Icon -->
-      <div class="flex items-center space-x-2 mb-4">
-        <h3 class="text-3xl card-heading">Dear Mommy...</h3>
+      <div class="card-stitched w-full h-full p-5 flex flex-col relative bg-[#fce4d6] min-h-0">
+        <button onclick="closeModal('modal-letter')" class="absolute top-2 right-2 text-slate-400 hover:text-slate-600 font-bold text-xl leading-none z-20">✕</button>
+        
+        <div class="flex items-center space-x-2 mb-3 shrink-0">
+          <h3 class="text-3xl card-heading">Dear Mommy...</h3>
+        </div>
+
+        <div class="modal-scroll-content text-base leading-relaxed space-y-4 font-medium text-slate-700 overflow-y-auto pr-2 flex-1">
+          <p>Selamat ulang tahun, Mommy! 🩵</p>
+          <p>Di hari yang spesial ini, aku cuma mau bilang betapa bersyukurnya aku punya mommy yang selalu ada, selalu ngerti, dan selalu ngasih hangat di rumah. Terima kasih untuk semua pelukan, doa, dan nasihat yang kadang aku protesin, tapi selalu aku simpan. Semoga di umur empat puluh satu ini mommy makin sehat, tenang, dan dipenuhi hal-hal yang bikin mommy senyum. Aku sayang banget sama mommy, dan bangga jadi anak mommy. Semoga tahun ini membawa lebih banyak kebahagiaan kecil setiap harinya. Aamiin</p>
+        </div>
       </div>
 
-      <!-- Content -->
-      <div class="text-base leading-relaxed space-y-4 font-medium text-slate-700 overflow-y-auto pr-2 flex-1">
-        <p>Selamat ulang tahun, Mommy! 🩵</p>
-        <p>Di hari yang spesial ini, aku cuma mau bilang betapa bersyukurnya aku punya mommy yang selalu ada, selalu ngerti, dan selalu ngasih hangat di rumah. Terima kasih untuk semua pelukan, doa, dan nasihat yang kadang aku protesin, tapi selalu aku simpan. Semoga di umur empat puluh satu ini mommy makin sehat, tenang, dan dipenuhi hal-hal yang bikin mommy senyum. Aku sayang banget sama mommy, dan bangga jadi anak mommy. Semoga tahun ini membawa lebih banyak kebahagiaan kecil setiap harinya. Aamiin</p>
-      </div>
     </div>
-
   </div>
-</div>
 
-<!-- Modal 2: Special Wishes (Satu Teks Utuh untuk Ibu) -->
-<div id="modal-wishes" class="modal fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-  <div class="bg-[#fce4d6] rounded-3xl p-5 md:p-7 w-[92vw] max-w-md h-[78vh] shadow-2xl border-2 border-white/60 relative text-slate-700 flex flex-col justify-between">
-    
-    <div class="card-stitched w-full h-full p-6 flex flex-col relative overflow-hidden bg-[#fce4d6]">
-      <button onclick="closeModal('modal-wishes')" class="absolute top-2 right-2 text-slate-400 hover:text-slate-600 font-bold text-lg leading-none">✕</button>
+  <!-- Modal 2: Special Wishes -->
+  <div id="modal-wishes" class="modal fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div class="bg-[#fce4d6] rounded-3xl p-4 md:p-6 w-[92vw] max-w-md max-h-[82vh] shadow-2xl border-2 border-white/60 relative text-slate-700 flex flex-col justify-between">
       
-      <!-- Heading -->
-      <div class="flex items-center space-x-2 mb-4">
-        <h3 class="text-3xl card-heading">Special Wishes</h3>
+      <div class="card-stitched w-full h-full p-5 flex flex-col relative bg-[#fce4d6] min-h-0">
+        <button onclick="closeModal('modal-wishes')" class="absolute top-2 right-2 text-slate-400 hover:text-slate-600 font-bold text-xl leading-none z-20">✕</button>
+        
+        <div class="flex items-center space-x-2 mb-3 shrink-0">
+          <h3 class="text-3xl card-heading">Special Wishes</h3>
+        </div>
+
+        <div class="modal-scroll-content text-sm md:text-base leading-relaxed space-y-3 font-medium text-slate-700 overflow-y-auto pr-2 flex-1">
+          <p>Once again, Happy Birthday, Mom! ❤️</p>
+          <p>My wish for you is simple: I hope you always find reasons to smile, happiness in every little moment, and peace in every step of your life.</p>
+          <p>May you always be blessed with good health, endless happiness, and a heart free from worries. I hope every day brings you something beautiful, just as you have brought so much love and warmth into our lives.</p>
+          <p>Thank you for all the love, sacrifices, patience, and kindness you've given. I may not always say it, but I am truly grateful to have you in my life.</p>
+          <p>May God always protect you, grant you a long and healthy life, and fill your days with countless blessings.</p>
+          <p class="font-bold text-rose-500">You deserve all the happiness in the world, Mom. I love you, always. 💗</p>
+        </div>
       </div>
 
-      <!-- Content Text Utuh -->
-      <div class="text-sm md:text-base leading-relaxed space-y-3 font-medium text-slate-700 overflow-y-auto pr-2 flex-1">
-        <p>Once again, Happy Birthday, Mom! ❤️</p>
-        <p>My wish for you is simple: I hope you always find reasons to smile, happiness in every little moment, and peace in every step of your life.</p>
-        <p>May you always be blessed with good health, endless happiness, and a heart free from worries. I hope every day brings you something beautiful, just as you have brought so much love and warmth into our lives.</p>
-        <p>Thank you for all the love, sacrifices, patience, and kindness you've given. I may not always say it, but I am truly grateful to have you in my life.</p>
-        <p>May God always protect you, grant you a long and healthy life, and fill your days with countless blessings.</p>
-        <p class="font-bold text-rose-500">You deserve all the happiness in the world, Mom. I love you, always. 💗</p>
-      </div>
     </div>
-
   </div>
-</div>
 
-<!-- Modal 3: Photo Gallery (Single Column Scroll & Fit Ratio) -->
-<div id="modal-gallery" class="modal fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-  <div class="bg-[#fce4d6] rounded-3xl p-5 md:p-7 w-[92vw] max-w-md h-[82vh] shadow-2xl border-2 border-white/60 relative text-slate-700 flex flex-col justify-between">
-    
-    <div class="card-stitched w-full h-full p-5 flex flex-col relative overflow-hidden bg-[#fce4d6]">
-      <button onclick="closeModal('modal-gallery')" class="absolute top-2 right-2 text-slate-400 hover:text-slate-600 font-bold text-lg leading-none">✕</button>
+  <!-- Modal 3: Photo Gallery -->
+  <div id="modal-gallery" class="modal fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div class="bg-[#fce4d6] rounded-3xl p-4 md:p-6 w-[92vw] max-w-md max-h-[82vh] shadow-2xl border-2 border-white/60 relative text-slate-700 flex flex-col justify-between">
       
-      <!-- Heading -->
-      <div class="flex items-center space-x-2 mb-3">
-        <h3 class="text-3xl card-heading">Sweet Memories</h3>
-        <span class="text-xl">📸</span>
+      <div class="card-stitched w-full h-full p-5 flex flex-col relative bg-[#fce4d6] min-h-0">
+        <button onclick="closeModal('modal-gallery')" class="absolute top-2 right-2 text-slate-400 hover:text-slate-600 font-bold text-xl leading-none z-20">✕</button>
+        
+        <div class="flex items-center space-x-2 mb-3 shrink-0">
+          <h3 class="text-3xl card-heading">Sweet Memories</h3>
+        </div>
+
+        <div class="modal-scroll-content flex flex-col gap-4 overflow-y-auto pr-1 flex-1">
+          <img src="foto1.jpeg" class="rounded-2xl shadow-md border-2 border-white w-full h-auto object-contain" alt="Gallery 1">
+          <img src="foto2.jpeg" class="rounded-2xl shadow-md border-2 border-white w-full h-auto object-contain" alt="Gallery 2">
+          <img src="foto3.jpeg" class="rounded-2xl shadow-md border-2 border-white w-full h-auto object-contain" alt="Gallery 3">
+          <img src="foto4.jpeg" class="rounded-2xl shadow-md border-2 border-white w-full h-auto object-contain" alt="Gallery 4">
+          <img src="foto5.jpeg" class="rounded-2xl shadow-md border-2 border-white w-full h-auto object-contain" alt="Gallery 5">
+        </div>
       </div>
 
-      <!-- Single Column Fit Ratio Gallery -->
-      <div class="flex flex-col gap-4 overflow-y-auto pr-1 flex-1">
-        <img src="foto1.jpeg" class="rounded-2xl shadow-md border-2 border-white w-full h-auto object-contain" alt="Gallery 1">
-        <img src="foto2.jpeg" class="rounded-2xl shadow-md border-2 border-white w-full h-auto object-contain" alt="Gallery 2">
-        <img src="foto3.jpeg" class="rounded-2xl shadow-md border-2 border-white w-full h-auto object-contain" alt="Gallery 3">
-        <img src="foto4.jpeg" class="rounded-2xl shadow-md border-2 border-white w-full h-auto object-contain" alt="Gallery 4">
-        <img src="foto5.jpeg" class="rounded-2xl shadow-md border-2 border-white w-full h-auto object-contain" alt="Gallery 5">
-      </div>
     </div>
-
   </div>
-</div>
 
   <!-- Custom JavaScript -->
   <script src="main.js"></script>

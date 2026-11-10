@@ -25,7 +25,7 @@ function blowCandle() {
     origin: { y: 0.6 }
   });
 
-  // Otomatis Putar Musik Musik
+  // Otomatis Putar Musik
   const bgm = document.getElementById('bgm');
   bgm.play().catch(e => console.log("Autoplay ditahan browser"));
   document.getElementById('play-icon').classList.add('hidden');
@@ -67,11 +67,35 @@ function toggleMusic() {
   }
 }
 
-// Modal Controls (Buka & Tutup Pop-Up)
+// Modal Controls (Solusi Bug Mobile Scroll)
 function openModal(id) {
-  document.getElementById(id).classList.add('active');
+  const targetModal = document.getElementById(id);
+  if (targetModal) {
+    targetModal.classList.add('active');
+    
+    // Kunci background agar layar belakang tidak ikut scroll di HP
+    document.body.classList.add('modal-open');
+    
+    // Reset scroll ke paling atas
+    const scrollArea = targetModal.querySelector('.modal-scroll-content');
+    if (scrollArea) {
+      scrollArea.scrollTop = 0;
+    }
+  }
 }
 
 function closeModal(id) {
-  document.getElementById(id).classList.remove('active');
+  const targetModal = document.getElementById(id);
+  if (targetModal) {
+    targetModal.classList.remove('active');
+    
+    // Buka kuncian background
+    document.body.classList.remove('modal-open');
+    
+    // Reset scroll posisi
+    const scrollArea = targetModal.querySelector('.modal-scroll-content');
+    if (scrollArea) {
+      scrollArea.scrollTop = 0;
+    }
+  }
 }
