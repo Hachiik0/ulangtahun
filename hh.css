@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Fredoka:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-x: hidden;
+  min-h-screen: 100vh;
+}
+
+.font-fredoka {
+  font-family: 'Fredoka', sans-serif;
+}
+
+.title-cursive {
+  font-family: 'Dancing Script', cursive;
+  color: #7b92a5;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* -----------------------------------
+   BACKGROUND FLOATING GALLERY ANIMATION
+----------------------------------- */
+.gallery-bg-container {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  z-index: 0;
+  opacity: 0.35;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.gallery-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 140px;
+}
+
+.card-heading {
+  font-family: 'Pacifico', cursive;
+  color: #3b82f6; /* Warna biru lembut persis foto */
+  text-shadow: 0.5px 0.5px 0px rgba(0, 0, 0, 0.1);
+}
+
+.card-stitched {
+  border: 2px dashed #e2cbb8;
+  border-radius: 1.5rem;
+}
+
+.photo-card {
+  width: 100%;
+  height: auto; /* Dibuat otomatis mengikuti rasio asli foto */
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 4px solid #ffffff;
+  transform: rotate(var(--rot, 0deg));
+}
+
+.photo-card img {
+  width: 100%;
+  height: auto; /* Mencegah foto terpotong (fit ratio) */
+  object-fit: contain;
+  display: block;
+}
+
+.photo-card:nth-child(odd) { --rot: -3deg; }
+.photo-card:nth-child(even) { --rot: 4deg; }
+
+/* Infinite Scroll Animations */
+.scroll-down {
+  animation: scrollDown 22s linear infinite;
+}
+
+.scroll-up {
+  animation: scrollUp 25s linear infinite;
+}
+
+@keyframes scrollDown {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0%); }
+}
+
+@keyframes scrollUp {
+  0% { transform: translateY(0%); }
+  100% { transform: translateY(-50%); }
+}
+
+/* Soft Glass Overlay */
+.overlay-glass {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(207, 219, 230, 0.65) 0%, rgba(207, 219, 230, 0.92) 100%);
+  backdrop-filter: blur(2px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* -----------------------------------
+   CANDLE ANIMATIONS
+----------------------------------- */
+.candle-short {
+  width: 44px;
+  height: 65px;
+}
+
+.candle-tall {
+  width: 44px;
+  height: 115px;
+}
+
+.wick {
+  width: 2px;
+  height: 10px;
+  background-color: #333;
+  position: absolute;
+  top: -10px;
+}
+
+.flame {
+  position: absolute;
+  top: -26px;
+  width: 14px;
+  height: 20px;
+  background: linear-gradient(to top, #ff9d00, #ffeb3b);
+  border-radius: 50% 50% 20% 20%;
+  box-shadow: 0 0 12px #ff9d00, 0 0 20px #ffeb3b;
+  animation: flicker 0.8s infinite alternate ease-in-out;
+  transform-origin: center bottom;
+}
+
+@keyframes flicker {
+  0% { transform: scale(1) rotate(-2deg); }
+  100% { transform: scale(1.1) rotate(2deg); }
+}
+
+.flame-out {
+  display: none !important;
+}
+
+/* -----------------------------------
+   MODAL POP-UP STYLES
+----------------------------------- */
+.modal {
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal > div {
+  transform: scale(0.9);
+  transition: all 0.3s ease;
+}
+
+.modal.active > div {
+  transform: scale(1);
+}@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Fredoka:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-x: hidden;
+  min-h-screen: 100vh;
+}
+
+.font-fredoka {
+  font-family: 'Fredoka', sans-serif;
+}
+
+.title-cursive {
+  font-family: 'Dancing Script', cursive;
+  color: #7b92a5;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* -----------------------------------
+   BACKGROUND FLOATING GALLERY ANIMATION
+----------------------------------- */
+.gallery-bg-container {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  z-index: 0;
+  opacity: 0.35;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.gallery-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 140px;
+}
+
+.photo-card {
+  width: 100%;
+  height: 180px;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 4px solid #ffffff;
+  transform: rotate(var(--rot, 0deg));
+}
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-card:nth-child(odd) { --rot: -3deg; }
+.photo-card:nth-child(even) { --rot: 4deg; }
+
+/* Infinite Scroll Animations */
+.scroll-down {
+  animation: scrollDown 22s linear infinite;
+}
+
+.scroll-up {
+  animation: scrollUp 25s linear infinite;
+}
+
+@keyframes scrollDown {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0%); }
+}
+
+@keyframes scrollUp {
+  0% { transform: translateY(0%); }
+  100% { transform: translateY(-50%); }
+}
+
+/* Soft Glass Overlay */
+.overlay-glass {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(207, 219, 230, 0.65) 0%, rgba(207, 219, 230, 0.92) 100%);
+  backdrop-filter: blur(2px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* -----------------------------------
+   CANDLE ANIMATIONS
+----------------------------------- */
+.candle-short {
+  width: 44px;
+  height: 65px;
+}
+
+.candle-tall {
+  width: 44px;
+  height: 115px;
+}
+
+.wick {
+  width: 2px;
+  height: 10px;
+  background-color: #333;
+  position: absolute;
+  top: -10px;
+}
+
+.flame {
+  position: absolute;
+  top: -26px;
+  width: 14px;
+  height: 20px;
+  background: linear-gradient(to top, #ff9d00, #ffeb3b);
+  border-radius: 50% 50% 20% 20%;
+  box-shadow: 0 0 12px #ff9d00, 0 0 20px #ffeb3b;
+  animation: flicker 0.8s infinite alternate ease-in-out;
+  transform-origin: center bottom;
+}
+
+@keyframes flicker {
+  0% { transform: scale(1) rotate(-2deg); }
+  100% { transform: scale(1.1) rotate(2deg); }
+}
+
+.flame-out {
+  display: none !important;
+}
+
+/* -----------------------------------
+   MODAL POP-UP STYLES
+----------------------------------- */
+.modal {
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal > div {
+  transform: scale(0.9);
+  transition: all 0.3s ease;
+}
+
+.modal.active > div {
+  transform: scale(1);
+}
